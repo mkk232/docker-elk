@@ -2,8 +2,8 @@ version: '2'
 
 services:
   elasticsearch:
+    container_name: elasticsearch
     build:
-      container_name: elasticsearch
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
@@ -30,8 +30,7 @@ services:
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "5000:5000"
-      - "9600:9600"
+      - "5044:5044"
     environment:
       LS_JAVA_OPTS: "-Xmx1G -Xms1G"
     networks:
